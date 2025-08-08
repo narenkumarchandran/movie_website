@@ -3,7 +3,7 @@ import "../css/Moviecard.css"
 function Moviecard({movie}){
     
     function onFavoriteClick(){
-        alert("Clicked")
+        alert("Add to Favorite")
     }
 
     return(

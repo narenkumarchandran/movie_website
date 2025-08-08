@@ -4,7 +4,6 @@ import Home from './pages/home';
 import NavBar from './components/NavBar';
 import Favorites from './pages/Favorites';
 function App() {
-  const movieNumber =0;
 
 
 
