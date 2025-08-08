@@ -1,4 +1,17 @@
-# React + Vite
+
+# Movie Favorite List Website
+A simple web application to browse movies and save your personal favorites list.
+Built using React.js.
+
+## Features
+View a list of movies with posters and details
+
+Mark movies as favorites
+
+Favorites are saved in local storage
+
+Remove movies from favorites anytime
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
