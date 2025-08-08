@@ -1,0 +1,86 @@
+/* Movie Card Container */
+.movie-card {
+  width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1c1c1c;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Poster Container */
+.movie-poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+/* Overlay for Favorite Button */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Favorite Button */
+.fav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  color: red;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.fav-btn:hover {
+  transform: scale(1.1);
+  background: white;
+}
+
+/* Movie Info Section */
+.movie-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-info h3 {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.movie-info p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
