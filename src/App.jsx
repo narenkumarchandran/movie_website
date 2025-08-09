@@ -3,19 +3,20 @@ import { Routes,Route } from 'react-router-dom';
 import Home from './pages/home';
 import NavBar from './components/NavBar';
 import Favorites from './pages/Favorites';
+import {MovieProvider} from "./context/MovieContext";
 function App() {
 
 
 
   return (
-    <div>
+    <MovieProvider>
       <main className='main-content'>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/favorites" element={<Favorites/>} />
         </Routes>
       </main>
-    </div>
+    </MovieProvider>
   );
 }
 

@@ -105,14 +105,13 @@ function Home(){
                     <a href="/" >Home</a> 
                     <a href="/favorites">Favorites</a>
                 </div>
-           
             </header>
             <div className="fullmovie-list">
                 <div className="Genre-list">
-                    <h2 class="sidebar-title">Genre</h2>
-                    <ul class="genres">
+                    <h2 className="sidebar-title">Genre</h2>
+                    <ul className="genres">
                        {genres.map((genre)=>(
-                            <li key={genres.id}>
+                            <li key={genre.id}>
                                 <a href="#" onClick={()=>setGenreQuey(genre.id)}>
                                     {genre.name}
                                 </a>

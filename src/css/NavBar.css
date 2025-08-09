@@ -7,6 +7,9 @@ header {
   position: sticky;
 }
 
+a{
+    font-weight: bold;
+}
 
 /* Logo */
 .left-content a {
@@ -25,7 +28,7 @@ header {
   transition: color 0.2s ease;  
 }
 
-.rigth-content a:hover {
+a:hover {
     text-decoration: dashed;
     text-decoration-color: aliceblue;
 }

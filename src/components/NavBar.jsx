@@ -3,7 +3,7 @@ import "../css/NavBar.css"
 function NavBar(){
 
     return (
-        <nav>
+        <header>
             <div className="left-content">
                 <a href="/">MovieApp</a>
             </div>
@@ -12,7 +12,7 @@ function NavBar(){
                 <a href="/favorites">Favorites</a>
             </div>
            
-        </nav>
+        </header>
     );
 
 }
