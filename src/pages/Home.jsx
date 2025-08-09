@@ -1,10 +1,12 @@
 import Moviecard from "../components/Moviecard"
 import { useState, useEffect } from "react"
-import { getSearchMovie,getPopularMovie } from "../services/api";
-import "../css/Home.css"
+import { getSearchMovie,getPopularMovie, getGenreMovie } from "../services/api";
+import "../css/home.css"
+import "../css/NavBar.css"
 function Home(){
 
     const [searchQuery,setSearchQuery] =useState("");
+    const [genreQuery,setGenreQuey]=useState(null);
     const [movies,setMovies]=useState([]);
     const[err,setError]=useState(null);
     const[loading,setLoading]=useState(true);
@@ -24,7 +26,48 @@ function Home(){
         }
         loadPopularFunctions();  
     },[])   
+
+
+    useEffect(()=>{
+        const loadGenreMovies= async()=>{
+            if(genreQuery===null)return;
+
+            try{
+                setLoading(true);
+                const genreResults =await getGenreMovie(genreQuery);
+                setMovies(genreResults);
+                setError(null);
+            }catch(err){
+                console.log(err);
+                setError("Failed to load movies....")
+            }
+            finally{
+                setLoading(false);
+            }
+        }
+
+        loadGenreMovies();
+    },[genreQuery]);
     
+  const genres = [
+    { id: 12, name: 'Adventure' },
+    { id: 14, name: 'Fantasy' },
+    { id: 16, name: 'Animation' },
+    { id: 18, name: 'Drama' },
+    { id: 27, name: 'Horror' },
+    { id: 28, name: 'Action' },
+    { id: 35, name: 'Comedy' },
+    { id: 10749, name: 'Romance' },
+    { id: 878, name: 'Science Fiction' },
+    { id: 9648, name: 'Mystery' },
+    { id: 10402, name: 'Music' },
+    { id: 37, name: 'Western' },
+    { id: 53, name: 'Thriller' },
+    { id: 80, name: 'Crime' },
+    { id: 99, name: 'Documentary' },
+    { id: 10752, name: 'War' },
+    { id: 36, name: 'History' },
+  ];
 
     const handleSearch = async (e)=>{
         e.preventDefault()
@@ -47,23 +90,51 @@ function Home(){
     return(
     
         <div className="home">
-            <form onSubmit={handleSearch} className="search-form">
-                <input type="text" placeholder="Search Movies" className="search-input"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value) }
-                />
-                <button type="submit" className="search-button">Search</button>
-            </form>
-            {err && <div className="error-msg">{err}</div>}
+            <header>
+                <div className="left-content">
+                    <a href="/">MovieApp</a>
+                </div>
+                <form onSubmit={handleSearch} className="search-form">
+                    <input type="text" placeholder="Search any Movies..." className="search-input"
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value) }
+                    />
+                    <button type="submit" className="search-button">🔍︎</button>
+                </form>
+                <div className="rigth-content">
+                    <a href="/" >Home</a> 
+                    <a href="/favorites">Favorites</a>
+                </div>
+           
+            </header>
+            <div className="fullmovie-list">
+                <div className="Genre-list">
+                    <h2 class="sidebar-title">Genre</h2>
+                    <ul class="genres">
+                       {genres.map((genre)=>(
+                            <li key={genres.id}>
+                                <a href="#" onClick={()=>setGenreQuey(genre.id)}>
+                                    {genre.name}
+                                </a>
+                            </li>
+                       ))}
+                    </ul>
+                </div>
+                <div className="movie-list">
+                        <h1>{genreQuery===null ?"Popular Movies":`All ${genres.find(g => g.id === genreQuery)?.name} Movies`}</h1>
+                    {err && <div className="error-msg">{err}</div>}
 
-            {loading ? (<div className="Loading...">loading</div>) :
-             (<div className="movie-grid">
-                {movies.map((movie) =>(
-                    movie.title.toLowerCase().startsWith(searchQuery) && 
-                    <Moviecard movie={movie} key={movie.id}/>  
-                    ))}
-            </div>)
-            }
+                    {loading ? (<div className="Loading...">loading</div>) :
+                    (<div className="movie-grid">
+                        {movies.map((movie) =>(
+                            movie.title.toLowerCase().startsWith(searchQuery) && 
+                            <Moviecard movie={movie} key={movie.id} />  
+                            ))}
+                    </div>)
+                    }
+                </div>
+            </div>
+           
             
         </div>
       

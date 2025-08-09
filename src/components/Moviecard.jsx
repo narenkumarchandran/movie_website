@@ -16,7 +16,10 @@ function Moviecard({movie}){
             </div>
             <div className="movie-info">
                 <h3>{movie.title}</h3>
-                <p>{movie.release_date.split('-')[0]}</p>
+                <div className="movie-des">
+                    <span class="rating"><i>★ </i>{Math.round(movie.vote_average*10)/10}</span>
+                    <p>{movie.release_date.split('-')[0]}</p>
+                </div>
             </div>
         </div>
     )

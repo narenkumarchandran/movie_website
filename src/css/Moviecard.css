@@ -1,5 +1,107 @@
 /* Movie Card Container */
-.movie-card {
+
+
+.movie-card{
+  width:220px;
+ 
+
+  overflow:hidden;
+ 
+
+}
+.movie-poster{
+  position: relative;
+  border-radius:12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow:hidden;
+}
+.movie-poster img{
+  width: 100%;
+  display: block;
+}
+.fav-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  color: rgb(245, 242, 242);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.fav-btn:hover {
+  transform: scale(1.1);
+  color: red;
+}
+
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  align-items: start;
+  justify-content: right;
+  transition: opacity 0.3s ease;
+}
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.movie-info{
+   padding: 10px;
+    
+}
+
+.movie-info h3{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color:  #e0e0e0;
+    margin: 0 0 12px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info p{
+    display: flex;
+    justify-content: space-between; /* Pushes items to opposite ends */
+    align-items: center;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    
+ 
+}
+
+
+.movie-des{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.rating {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    gap: 10px;
+}
+.rating i{
+  color: gold;
+}
+/* The star icon */
+
+/* .movie-card {
   width: 200px;
   border-radius: 12px;
   overflow: hidden;
@@ -15,7 +117,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Poster Container */
 .movie-poster {
   position: relative;
   overflow: hidden;
@@ -31,7 +132,6 @@
   transform: scale(1.05);
 }
 
-/* Overlay for Favorite Button */
 .movie-overlay {
   position: absolute;
   top: 0;
@@ -50,7 +150,7 @@
   opacity: 1;
 }
 
-/* Favorite Button */
+
 .fav-btn {
   background: rgba(255, 255, 255, 0.9);
   border: none;
@@ -68,7 +168,7 @@
   background: white;
 }
 
-/* Movie Info Section */
+
 .movie-info {
   padding: 10px;
   text-align: center;
@@ -83,4 +183,4 @@
 .movie-info p {
   font-size: 0.9rem;
   color: #aaa;
-}
+} */

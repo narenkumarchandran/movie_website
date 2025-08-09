@@ -12,3 +12,11 @@ export const getSearchMovie= async (query)=> {
     const data=await response.json();
     return data.results;
 };
+
+
+export const getGenreMovie= async (genreid)=> {
+    const response=await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreid}&primary_release_year=2024&sort_by=popularity.desc`);
+    const data=await response.json();
+    return data.results;
+};
+

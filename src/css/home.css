@@ -1,9 +1,47 @@
 /* Home Container */
 .home {
   padding: 30px;
-  background: #0f0f0f; /* Dark background for cinematic feel */
+  background: #193416; /* Dark background for cinematic feel */
   min-height: 100vh;
   color: white;
+}
+
+.fullmovie-list{
+    display: flex;
+    gap: 3rem;
+}
+
+.genre-list{
+    flex: 0 0 220px;
+}
+
+.genres {
+    list-style: none;
+}
+
+.genres li a {
+    font-size: 20px;
+    display: block;
+    color: #ccc;
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-weight: 700;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.genres li a:hover {
+    color: white;
+}
+
+
+.movie-list{
+    
+    border-radius: 40px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #132013;
 }
 
 /* Search Form */
@@ -14,19 +52,23 @@
 }
 
 .search-input {
+  background-color: #264026;
+  color: #ccc;
+  font-weight: 550;
   width: 300px;
   padding: 10px 15px;
   border-radius: 6px 0 0 6px;
   border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);;
   outline: none;
   font-size: 1rem;
 }
 
 .search-button {
   padding: 10px 20px;
-  background: #e50914; /* Netflix red */
+  background: #132013; /* Netflix red */
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 1rem;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
@@ -34,7 +76,7 @@
 }
 
 .search-button:hover {
-  background: #ff0a16;
+  background: #264026;
 }
 
 /* Error Message */
@@ -54,6 +96,6 @@
 /* Movie Grid */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5em;
 }
