@@ -1,8 +1,8 @@
-#Movie Favorite List Website
+Movie Favorite List Website
 A simple web application to browse movies and save your personal favorites list.
 Built using HTML, CSS, and JavaScript.
 
-##Features
+Features
 View a list of movies with posters and details
 
 Mark movies as favorites
@@ -13,7 +13,7 @@ Remove movies from favorites anytime
 
 Responsive design for desktop and mobile
 
-##Technologies Used
+Technologies Used
 HTML5 for structure
 
 CSS3 for styling
