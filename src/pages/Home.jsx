@@ -1,4 +1,5 @@
 import Moviecard from "../components/Moviecard"
+import { Link} from "react-router-dom";
 import { useState, useEffect } from "react"
 import { getSearchMovie,getPopularMovie, getGenreMovie } from "../services/api";
 import "../css/home.css"
@@ -87,12 +88,14 @@ function Home(){
         } 
         
     };
+
+
     return(
     
         <div className="home">
             <header>
                 <div className="left-content">
-                    <a href="/">MovieApp</a>
+                    <a href="/">NkMovies</a> 
                 </div>
                 <form onSubmit={handleSearch} className="search-form">
                     <input type="text" placeholder="Search any Movies..." className="search-input"
@@ -102,8 +105,8 @@ function Home(){
                     <button type="submit" className="search-button">🔍︎</button>
                 </form>
                 <div className="rigth-content">
-                    <a href="/" >Home</a> 
-                    <a href="/favorites">Favorites</a>
+                    <Link to="/">Home</Link> 
+                    <Link to="/favorites">Favorites</Link>
                 </div>
             </header>
             <div className="fullmovie-list">
@@ -125,10 +128,12 @@ function Home(){
 
                     {loading ? (<div className="Loading...">loading</div>) :
                     (<div className="movie-grid">
-                        {movies.map((movie) =>(
-                            movie.title.toLowerCase().startsWith(searchQuery) && 
-                            <Moviecard movie={movie} key={movie.id} />  
-                            ))}
+                        {movies.length==0 ? (<div className="no-data">No film data</div>)
+                            :(
+                                movies.filter((movie)=>movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
+                                .map((movie) =>(
+                                <Moviecard movie={movie} key={movie.id} />  
+                            )))}
                     </div>)
                     }
                 </div>

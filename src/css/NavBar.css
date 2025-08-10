@@ -23,12 +23,14 @@ a{
 .rigth-content a {
   color: white;
   margin-left: 20px;
+  padding: 10px;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s ease;  
 }
 
-a:hover {
-    text-decoration: dashed;
-    text-decoration-color: aliceblue;
+.rigth-content a:hover {
+    text-decoration:underline;;
+    text-decoration-color: #eceeec;
+    text-underline-offset: 4px;
 }

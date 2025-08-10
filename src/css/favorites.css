@@ -1,4 +1,8 @@
 
+
+body{
+  background: #193416; 
+}
 .favorites{
   padding: 30px;
   background: #193416; /* Dark background for cinematic feel */
@@ -17,6 +21,7 @@
 .favorites-empty {
   text-align: center;
   padding: 4rem 2rem;
+  background: #193416;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   margin: 2rem auto;
@@ -35,9 +40,27 @@
   line-height: 1.6;
 }
 
+.back{
+  text-decoration: none;
+  color: #ccc;
+}
+
+.back:hover{
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+
+}
 .movie-list{ 
     border-radius: 40px;
     padding: 20px;
     flex-grow: 1;
     background-color: #132013;
+}
+
+
+.movie-grid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 7em;
 }
