@@ -1,6 +1,8 @@
 import Moviecard from "../components/Moviecard"
 import { Link} from "react-router-dom";
 import { useState, useEffect } from "react"
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { getSearchMovie,getPopularMovie, getGenreMovie } from "../services/api";
 import "../css/home.css"
 import "../css/NavBar.css"
@@ -95,7 +97,7 @@ function Home(){
         <div className="home">
             <header>
                 <div className="left-content">
-                    <a href="/">NkMovies</a> 
+                    <a href="/">🎬NkMovies</a> 
                 </div>
                 <form onSubmit={handleSearch} className="search-form">
                     <input type="text" placeholder="Search any Movies..." className="search-input"
@@ -112,21 +114,26 @@ function Home(){
             <div className="fullmovie-list">
                 <div className="Genre-list">
                     <h2 className="sidebar-title">Genre</h2>
-                    <ul className="genres">
+                    <div className="genres">
                        {genres.map((genre)=>(
-                            <li key={genre.id}>
                                 <a href="#" onClick={()=>setGenreQuey(genre.id)}>
                                     {genre.name}
                                 </a>
-                            </li>
                        ))}
-                    </ul>
+                    </div>
                 </div>
                 <div className="movie-list">
                         <h1>{genreQuery===null ?"Popular Movies":`All ${genres.find(g => g.id === genreQuery)?.name} Movies`}</h1>
                     {err && <div className="error-msg">{err}</div>}
 
-                    {loading ? (<div className="Loading...">loading</div>) :
+                    {loading ? (
+                            <div className="movie-grid">
+                                {Array(8) // Show 8 placeholders
+                                .fill()
+                                .map((_, index) => (
+                                    <Skeleton height={300} borderRadius={10} baseColor="#243624ff"/>
+                                ))}
+                            </div>):
                     (<div className="movie-grid">
                         {movies.length==0 ? (<div className="no-data">No film data</div>)
                             :(

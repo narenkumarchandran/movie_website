@@ -1,7 +1,7 @@
 /* Home Container */
 .home {
   padding: 30px;
-  background: #193416; /* Dark background for cinematic feel */
+  background: #1d2e1b; /* Dark background for cinematic feel */
   min-height: 100vh;
   color: white;
 }
@@ -17,21 +17,22 @@
 
 .genres {
     list-style: none;
+    
 }
 
-.genres li a {
-    font-size: 20px;
+.genres a {
+    font-size:large;
     display: block;
     color: #ccc;
     padding: 0.6rem 0.75rem;
     border-radius: 6px;
     margin-bottom: 4px;
-    font-weight: 700;
+    font-weight: 200;
     transition: background-color 0.2s;
     text-decoration: none;
 }
 
-.genres li a:hover {
+.genres a:hover {
     color: white;
 }
 
@@ -97,5 +98,5 @@
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5em;
+  gap: 2em;
 }
