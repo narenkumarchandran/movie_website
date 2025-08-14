@@ -5,7 +5,7 @@ function NavBar(){
     return (
         <header>
             <div className="left-content">
-                <Link to="/">NkMovies</Link>
+                <Link to="/">🎬NkMovies</Link>
             </div>
             <div className="rigth-content">
                 <Link to="/">Home</Link> 
